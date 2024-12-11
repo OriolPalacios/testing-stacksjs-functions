@@ -37,8 +37,8 @@ export const LogInButton = () => {
   }
   return (
     <div className="w-full">
-      {connected ? (<div>Hola {userData?.profile.stxAddress.testnet}</div>) : null}
-      {connected ? (<div>Hola {userData?.profile.stxAddress.mainnet}</div>) : null}
+      {connected ? (<div>Testnet: {userData?.profile.stxAddress.testnet.slice(0,5) + "..." + userData?.profile.stxAddress.testnet.slice(-5)}</div>) : null}
+      {connected ? (<div>Mainnet: {userData?.profile.stxAddress.mainnet.slice(0,5) + "..." + userData?.profile.stxAddress.mainnet.slice(-5)}</div>) : null}
       {connected ? (
         <div className="button-wrapper flex flex-col items-center w-full">
           <button type="button" onClick={logOut} className="w-1/2 text-white bg-green-500 mt-2 p-2 rounded dark:bg-green-700">
