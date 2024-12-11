@@ -5,9 +5,6 @@ import { showConnect, disconnect, AuthResponsePayload } from "@stacks/connect";
 import clsx from 'clsx';
 
 const myAppName = 'Testing functions';
-const buttonClass = clsx('button', {
-  'button--disabled': !userSession.isUserSignedIn()
-});
 
 export const LogInButton = () => {
   const [connected, setConnected] = useState(false);
@@ -16,7 +13,7 @@ export const LogInButton = () => {
     showConnect({
       appDetails: {
         name: myAppName,
-        icon: window.location.origin + '/logo.svg',
+        icon: 'https://cdn-icons-png.flaticon.com/512/10061/10061823.png',
       },
       userSession,
       redirectTo: '/',
@@ -24,7 +21,6 @@ export const LogInButton = () => {
         console.log(payload);
         setConnected(true);
         setUserData(payload.authResponsePayload);
-        // window.location.reload();
       },
       onCancel: () => {
         window.alert('Authentication was cancelled');
@@ -40,7 +36,7 @@ export const LogInButton = () => {
       {connected ? (<div>Testnet: {userData?.profile.stxAddress.testnet.slice(0,5) + "..." + userData?.profile.stxAddress.testnet.slice(-5)}</div>) : null}
       {connected ? (<div>Mainnet: {userData?.profile.stxAddress.mainnet.slice(0,5) + "..." + userData?.profile.stxAddress.mainnet.slice(-5)}</div>) : null}
       {connected ? (
-        <div className="button-wrapper flex flex-col items-center w-full">
+        <div className="button-wrapper flex items-center w-full">
           <button type="button" onClick={logOut} className="w-1/2 text-white bg-green-500 mt-2 p-2 rounded dark:bg-green-700">
             Disconnect wallet
           </button>
