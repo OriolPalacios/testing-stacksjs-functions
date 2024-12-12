@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { LogInButton } from "@/ui/LogInButton";
+import { DeployContractButton } from "@/ui/DeployContractButton";
 
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <h1 className="text-3xl text-white">Sign in with your wallet!</h1>
         <LogInButton />
+        <DeployContractButton />
       </main>
     </div>
   );
